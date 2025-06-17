@@ -1,145 +1,146 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fandangus</title>
-    <link rel="stylesheet" href="styles.css?v=70">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="favicon.png">
-    <script
-    src="https://js.sentry-cdn.com/8d38ce047555b74bc9ae8c98ff73bb3c.min.js"
-    crossorigin="anonymous"
-    ></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Taskitos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Orbitron', 'Roboto', sans-serif;
+    }
+
+    body {
+      background: radial-gradient(circle at top left, #0f0f0f, #1a1a1a);
+      color: #e0e0e0;
+      padding: 2rem;
+      min-height: 100vh;
+    }
+
+    h1, h2 {
+      color: #00ffe1;
+      text-shadow: 0 0 5px #00ffe1, 0 0 10px #00ffe1;
+      margin-bottom: 1rem;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      background: rgba(40, 40, 40, 0.6);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 0 20px #00ffe1;
+    }
+
+    label {
+      display: block;
+      margin-top: 1rem;
+      font-size: 14px;
+      color: #ccc;
+    }
+
+    input[type="text"], input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      background-color: #2c2c2c;
+      color: #fff;
+      border: 1px solid #444;
+      border-radius: 6px;
+      outline: none;
+    }
+
+    input:focus {
+      border: 1px solid #00ffe1;
+      box-shadow: 0 0 5px #00ffe1;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    button {
+      flex: 1;
+      padding: 10px;
+      background: linear-gradient(90deg, #00ffe1, #0078ff);
+      color: #000;
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #00ffe1;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px #00ffe1;
+    }
+
+    .discord {
+      margin-top: 2rem;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .discord a {
+      color: #00ffe1;
+      text-decoration: none;
+    }
+
+    .discord a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      margin-top: 2rem;
+      font-size: 12px;
+      text-align: center;
+      color: #777;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header class="header">
-            <div class="logo">
-                <h1 data-text="Taskitos">Taskitos</h1>
-                <p class="subtitle">para sala do futuro e cmsp!</p>
-            </div>
-        </header>
+  <div class="container">
+    <h1>Fandangus</h1>
+    <p>para sala do futuro e cmsp!</p>
 
-        <section id="loginSection" class="section">
-            <div class="login-container">
-                <h2>Login</h2>
-                <form id="loginForm" class="login-form">
-                    <div class="input-group">
-                        <label for="studentId">RA</label>
-                        <div class="input-wrapper">
-                            <input type="text" id="studentId" placeholder="RA + dígito + sp | ex: 123456790sp" required>
-                            <button type="button" id="clearStudentId" class="clear-btn hidden">×</button>
-                        </div>
-                    </div>
-                    
-                    <div class="input-group">
-                        <label for="password">Senha</label>
-                        <div class="input-wrapper">
-                            <input type="password" id="password" placeholder="Senha" required>
-                            <button type="button" id="togglePassword" class="toggle-btn">👁</button>
-                            <button type="button" id="clearPassword" class="clear-btn hidden">×</button>
-                        </div>
-                    </div>
+    <h2>Login</h2>
 
-                    <div class="button-group">
-                        <button type="button" id="loginNormal" class="btn btn-secondary">
-                            Atividades Pendentes
-                        </button>
-                        <button type="button" id="loginOverdue" class="btn btn-secondary">
-                            Atividades Expiradas
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </section>
+    <label for="ra">RA</label>
+    <input type="text" id="ra" placeholder="RA + dígito + sp | ex: 1234567">
+
+    <label for="senha">Senha</label>
+    <input type="password" id="senha" placeholder="Senha">
+
+    <div class="btn-group">
+      <button onclick="verAtividades('pendentes')">Atividades Pendentes</button>
+      <button onclick="verAtividades('expiradas')">Atividades Expiradas</button>
     </div>
 
-    <div id="activityModal" class="modal hidden">
-        <div class="modal-content large">
-            <div class="modal-header">
-                <h2>Selecionar Atividades</h2>
-                <button class="close-btn" id="closeActivityModal">×</button>
-            </div>
-            
-            <div class="modal-body">
-                <div class="activity-list">
-                    <div class="select-all">
-                        <label>
-                            <input type="checkbox" id="selectAll"> Selecionar Todas as Atividades
-                        </label>
-                    </div>
-                    <div id="activityItems" class="activity-items">
-                    </div>
-                </div>
-
-                <div class="time-settings">
-                    <h3>Configurações de Tempo de Estudo</h3>
-                    <div class="time-inputs">
-                        <div class="input-group">
-                            <label for="minTime">Tempo Mínimo (minutos)</label>
-                            <input type="number" id="minTime" value="1" min="0" max="60">
-                        </div>
-                        <div class="input-group">
-                            <label for="maxTime">Tempo Máximo (minutos)</label>
-                            <input type="number" id="maxTime" value="3" min="1" max="60">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="modal-actions">
-                    <button id="startSelected" class="btn btn-secondary">Fazer Lições Selecionadas</button>
-                    <button id="startAllActivities" class="btn btn-secondary">Fazer Lições Todas</button>
-                    <button id="saveDraft" class="btn btn-secondary">Fazer Lições Selecionadas como Rascunho</button>
-                </div>
-            </div>
-        </div>
+    <div class="Olá!">
+      <p>Este site está em Beta</p>
+      <a href="testando" target="_blank">Site Test</a>
     </div>
 
-    <div id="progressOverlay" class="overlay hidden">
-        <div class="progress-content">
-            <h2>Processando Atividades</h2>
-            <div class="spinner"></div>
-            
-            <div class="progress-info">
-                <div id="currentActivity" class="current-activity">
-                    Preparando atividades...
-                </div>
-                
-                <div class="progress-stats">
-                    <span id="progressCounter">Processando 0 de 0 atividades</span>
-                </div>
-                
-                <div id="progressStatus" class="progress-status">
-                    Por favor, não feche esta página enquanto as atividades estão sendo processadas.
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="notificationContainer" class="notification-container"></div>
-
-    <footer class="footer">
-        Site teste
-        <br>
-        <a href="google.com">Site apenas teste</a>
-        <br>
-        feito por Brasileiros
-        <br>
-        "Fandangus" nome dado
-        <br>
-        Baseado em Doritus
+    <footer>
+      <p>feito por Brasileiros</p>
+      <p>"Fandangus" nome genérico</p>
+      <p>Baseado em Doritus</p>
     </footer>
+  </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pako/2.1.0/pako.min.js"></script>
-    <!-- <script src="index.js"></script> -->
-     <script>
-        // index.jsをランダムな数で読み込む
-        const randomNumber = Math.floor(Math.random() * 1000000);
-        const script = document.createElement('script');
-        script.src = `index.js?v=${randomNumber}`;
-        document.head.appendChild(script);
-     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'950f3c03cb56f1e3',t:'MTc1MDEyODU3NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"950f3c03cb56f1e3","version":"2025.6.2","r":1,"token":"1b784219b46d493b9d500a89e65be9ed","serverTiming":{"name":{"cfExtPri":true,"cfEdge":true,"cfOrigin":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}}}' crossorigin="anonymous"></script>
+  <script>
+    function verAtividades(tipo) {
+      alert("Abrindo atividades " + tipo);
+      // Adicione aqui o código para buscar e exibir as atividades
+    }
+  </script>
 </body>
 </html>
