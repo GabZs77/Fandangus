@@ -14,7 +14,7 @@ async function enviarPergunta() {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": "Bearer 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" // 🔑 Coloque sua chave da OpenAI aqui
+        "Authorization": "Bearer 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" // 🔑 Coloque sua chave da OpenAI aqui
       },
       body: JSON.stringify({
         model: "gpt-4", // Use "gpt-3.5-turbo" se não tiver acesso ao GPT-4
