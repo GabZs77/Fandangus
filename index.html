@@ -2,145 +2,25 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Taskitos</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Roboto&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Orbitron', 'Roboto', sans-serif;
-    }
-
-    body {
-      background: radial-gradient(circle at top left, #0f0f0f, #1a1a1a);
-      color: #e0e0e0;
-      padding: 2rem;
-      min-height: 100vh;
-    }
-
-    h1, h2 {
-      color: #00ffe1;
-      text-shadow: 0 0 5px #00ffe1, 0 0 10px #00ffe1;
-      margin-bottom: 1rem;
-    }
-
-    .container {
-      max-width: 400px;
-      margin: 0 auto;
-      background: rgba(40, 40, 40, 0.6);
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 0 20px #00ffe1;
-    }
-
-    label {
-      display: block;
-      margin-top: 1rem;
-      font-size: 14px;
-      color: #ccc;
-    }
-
-    input[type="text"], input[type="password"] {
-      width: 100%;
-      padding: 10px;
-      margin-top: 5px;
-      background-color: #2c2c2c;
-      color: #fff;
-      border: 1px solid #444;
-      border-radius: 6px;
-      outline: none;
-    }
-
-    input:focus {
-      border: 1px solid #00ffe1;
-      box-shadow: 0 0 5px #00ffe1;
-    }
-
-    .btn-group {
-      display: flex;
-      gap: 0.5rem;
-      margin-top: 1.5rem;
-      flex-wrap: wrap;
-    }
-
-    button {
-      flex: 1;
-      padding: 10px;
-      background: linear-gradient(90deg, #00ffe1, #0078ff);
-      color: #000;
-      font-weight: bold;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      box-shadow: 0 0 10px #00ffe1;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    button:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 15px #00ffe1;
-    }
-
-    .discord {
-      margin-top: 2rem;
-      text-align: center;
-      font-size: 14px;
-    }
-
-    .discord a {
-      color: #00ffe1;
-      text-decoration: none;
-    }
-
-    .discord a:hover {
-      text-decoration: underline;
-    }
-
-    footer {
-      margin-top: 2rem;
-      font-size: 12px;
-      text-align: center;
-      color: #777;
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IA Responde</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="container">
-    <h1>Fandangus</h1>
-    <p>para sala do futuro e cmsp!</p>
+    <h1>🤖 IA Responde</h1>
+    <p class="subtitle">Pergunte qualquer coisa e receba uma resposta precisa.</p>
 
-    <h2>Login</h2>
-
-    <label for="ra">RA</label>
-    <input type="text" id="ra" placeholder="RA + dígito + sp | ex: 1234567">
-
-    <label for="senha">Senha</label>
-    <input type="password" id="senha" placeholder="Senha">
-
-    <div class="btn-group">
-      <button onclick="verAtividades('pendentes')">Atividades Pendentes</button>
-      <button onclick="verAtividades('expiradas')">Atividades Expiradas</button>
+    <div class="chat-box">
+      <textarea id="userInput" placeholder="Digite sua pergunta aqui..."></textarea>
+      <button onclick="enviarPergunta()">Perguntar</button>
     </div>
 
-    <div class="Olá!">
-      <p>Este site está em Beta</p>
-      <a href="testando" target="_blank">Site Test</a>
+    <div class="resposta" id="respostaIA">
+      <p class="placeholder">Aguardando sua pergunta...</p>
     </div>
-
-    <footer>
-      <p>feito por Brasileiros</p>
-      <p>"Fandangus" nome genérico</p>
-      <p>Baseado em Doritus</p>
-    </footer>
   </div>
 
-  <script>
-    function verAtividades(tipo) {
-      alert("Abrindo atividades " + tipo);
-      // Adicione aqui o código para buscar e exibir as atividades
-    }
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
