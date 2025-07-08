@@ -1,26 +1,618 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gab IA</title>
-  <link rel="stylesheet" href="style.css" />
+    <!-- Informações básicas da página -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Uma das melhores alternativas caso o site da Doritos caia ou fique offline!" />
+    <meta name="keywords"
+        content="TarefaSP hacks, TarefaSP scripts, Sala do Futuro hacks, Sala do Futuro scripts, Sala Sem Futuro hacks, Sala dos sem futuro scripts, CMSP Plataformas hacks, CMSP Plataformas scripts, LeiaMe CMSP hacks, Arvore de Livros hacks, Khan Academy automação, Scripts para Khan Academy, Hacks para Matific, Scripts Matific CMSP, Prova Paulista hacks, Redação Paulista scripts, Hacks para SPeak CMSP, Scripts para Alura educação, Expansão Noturno hacks, Ferramentas para estudantes CMSP, Automação de tarefas escolares SP, Scripts de ensino remoto, Hacks educacionais SP, Scripts de provas online, Gamificação na educação CMSP, Estudo online otimizado CMSP, Plataformas educacionais hacks SP, Sala dos Sem Futuro plataformas, Scripts Sala Sem Futuro" />
+    <link rel="icon" href="https://i.imgur.com/4JEb2u5.png" type="image/png" />
+    <meta name="author" content="DarkMode" />
+    <title>Sala dos Sem Futuro</title>
+
+    <!-- Meta tags para redes sociais (Open Graph) -->
+    <meta property="og:title" content="Sala dos Sem Futuro" />
+    <meta property="og:description"
+        content="Uma das melhores alternativas caso o site da Doritos caia ou fique offline!" />
+    <meta property="og:image" content="https://i.imgur.com/hEUwNdP.png" />
+    <meta property="og:url" content="https://darkmodde.github.io/SalaSemFuturo/" />
+    <meta property="og:type" content="website" />
+
+    <!-- Meta tags para Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Sala dos Sem Futuro" />
+    <meta name="twitter:description"
+        content="Uma das melhores alternativas caso o site da Doritos caia ou fique offline!" />
+    <meta name="twitter:image" content="https://i.imgur.com/hEUwNdP.png" />
+
+    <!-- Otimização de fontes externas -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+
+    <!-- Script de análise -->
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js"
+        data-cf-beacon='{"token": "3181c0dc1eed48ca871c007a700ac85f"}'></script>
+    <style>
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #141414;
+            --bg-tertiary: #1f1f1f;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --accent-color: #ffffff;
+            --accent-hover: #e0e0e0;
+            --error-color: #ff4444;
+            --success-color: #44ff44;
+            --border-radius: 12px;
+            --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            user-select: none;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 500px;
+            margin: 20px;
+            background-color: var(--bg-secondary);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: clamp(20px, 5vw, 40px);
+            animation: fadeIn 0.5s ease;
+        }
+
+        .profile-image {
+            width: 140px;
+            height: 140px;
+            border-radius: 30%;
+            object-fit: cover;
+            display: block;
+            margin: 0 auto 20px;
+            border: 3px solid var(--accent-color);
+            pointer-events: none;
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--accent-color);
+            margin-bottom: 30px;
+            font-size: 28px;
+            font-weight: 600;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            animation: slideUp 0.5s ease;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 12px 15px;
+            background-color: var(--bg-tertiary);
+            border: 1px solid #333;
+            border-radius: var(--border-radius);
+            font-size: 16px;
+            transition: var(--transition);
+            color: var(--text-primary);
+        }
+
+        input:focus,
+        select:focus {
+            border-color: var(--accent-color);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(74, 128, 240, 0.2);
+        }
+
+        select option {
+            background-color: var(--bg-tertiary);
+            color: var(--text-primary);
+        }
+
+        button {
+            background-color: var(--accent-color);
+            color: black;
+            border: none;
+            padding: 12px 20px;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-size: 16px;
+            transition: var(--transition);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        button:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+
+        button:disabled {
+            background-color: #555;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+
+        .modal.closing {
+            animation: modalFadeOut 0.3s ease;
+        }
+
+        .modal-content {
+            background-color: var(--bg-secondary);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            max-width: 500px;
+            width: 95%;
+            margin: 20px;
+            box-shadow: var(--box-shadow);
+            animation: modalFadeIn 0.3s ease;
+            border: 1px solid #333;
+        }
+
+        .modal h2 {
+            margin-bottom: 20px;
+            color: var(--accent-color);
+            text-align: center;
+        }
+
+        .progress-container {
+            margin: 20px 0;
+        }
+
+        .progress-bar {
+            height: 10px;
+            background-color: var(--bg-tertiary);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .progress {
+            height: 100%;
+            background: #6a5acd;
+            width: 0%;
+            transition: width 0.5s ease;
+        }
+
+        .task-info {
+            margin-bottom: 15px;
+        }
+
+        .task-info p {
+            margin: 8px 0;
+            color: var(--text-secondary);
+        }
+
+        .time-remaining {
+            font-weight: bold;
+            color: var(--accent-color);
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        .close-modal {
+            background-color: var(--error-color);
+            margin-top: 20px;
+        }
+
+        .close-modal:hover {
+            background-color: #d32f2f;
+        }
+
+        .loader {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(74, 128, 240, 0.2);
+            border-radius: 50%;
+            border-top-color: var(--accent-color);
+            animation: spin 1s linear infinite;
+            margin-bottom: 10px;
+        }
+
+        .submit-btn-loading {
+            position: relative;
+            pointer-events: none;
+        }
+
+        .submit-btn-loading::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            margin: -10px 0 0 -10px;
+            border: 2px solid rgba(0, 0, 0, 0.2);
+            border-top-color: #000;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes modalFadeOut {
+            from {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            to {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+        }
+
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--bg-secondary);
+            border: 2px solid var(--accent-color);
+            border-radius: var(--border-radius);
+            padding: 15px 20px;
+            max-width: 350px;
+            z-index: 9999;
+            box-shadow: var(--box-shadow);
+            animation: slideInRight 0.3s ease;
+            width: 90%;
+            margin: 10px;
+        }
+
+        .notification.success {
+            border-color: var(--success-color);
+        }
+
+        .notification.error {
+            border-color: var(--error-color);
+        }
+
+        .notification.info {
+            border-color: var(--accent-color);
+        }
+
+        .notification-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .notification-title {
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: 14px;
+        }
+
+        .notification-message {
+            color: var(--text-secondary);
+            font-size: 13px;
+            line-height: 1.4;
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .time-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .time-inputs {
+            display: flex;
+            gap: 15px;
+            width: 100%;
+        }
+
+        .time-inputs .form-group {
+            flex: 1;
+            margin-bottom: 0;
+        }
+
+        .kill-tasks-btn {
+            width: 100%;
+            margin-top: 5px;
+        }
+
+        .warning-message {
+            color: #ffcc00;
+            background-color: rgba(255, 204, 0, 0.1);
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ffcc00;
+            font-size: 14px;
+        }
+
+                /* Estilos para a tela de manutenção */
+        .maintenance-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 99999;
+            backdrop-filter: blur(10px);
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .maintenance-content {
+            background-color: var(--bg-secondary);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            max-width: 600px;
+            width: 90%;
+            box-shadow: var(--box-shadow);
+            border: 2px solid var(--error-color);
+        }
+
+        .maintenance-content h2 {
+            color: var(--error-color);
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .maintenance-content p {
+            color: var(--text-primary);
+            font-size: 18px;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .maintenance-icon {
+            font-size: 60px;
+            color: var(--error-color);
+            margin-bottom: 30px;
+        }
+    </style>
 </head>
-<body>
-  <div class="container">
-    <h1>🤖 Gab IA</h1>
-    <p class="subtitle">Respondo tudo. Literalmente tudo. Pergunte o que quiser.</p>
 
-    <div class="chat-box">
-      <textarea id="userInput" placeholder="Digite sua pergunta aqui..."></textarea>
-      <button onclick="enviarPergunta()">Enviar</button>
+<body oncontextmenu="return false;">
+    <div class="maintenance-overlay" id="maintenanceOverlay">
+        <div class="maintenance-content">
+            <div class="maintenance-icon">🚧</div>
+            <h2>ESTAMOS EM MANUTENÇÃO</h2>
+            <p>Fudeo KKK, Sala do Futuro corrigiu a API que eu utilizava!. Por favor, volte mais tarde.</p>
+            <p>Pedimos desculpas pelo inconveniente e agradecemos sua compreensão.</p>
+        </div>
     </div>
 
-    <div class="resposta" id="respostaIA">
-      <p class="placeholder">Aguardando sua pergunta...</p>
-    </div>
-  </div>
+    <div class="container">
+        <img src="https://i.imgur.com/kFb0sct.png" alt="Perfil" class="profile-image">
+        <h1>Sala dos Sem Futuro</h1>
 
-  <script src="script.js"></script>
-</body>
-</html>
+        <form id="Enviar">
+            <div class="form-group">
+                <label for="ra">Registro Acadêmico (RA):</label>
+                <input type="text" id="ra" required placeholder="Digite seu RA">
+            </div>
+
+            <div class="form-group">
+                <label for="senha">Senha:</label>
+                <input type="password" id="senha" required placeholder="Digite sua senha">
+            </div>
+
+            <div class="form-group time-container">
+                <div class="time-inputs">
+                    <div class="form-group">
+                        <label for="tempoMin">Mínimo:</label>
+                        <select id="tempoMin" required>
+                            <option value="60">01 Minuto</option>
+                            <option value="120" selected>02 Minutos</option>
+                            <option value="180">03 Minutos</option>
+                            <option value="300">05 Minutos</option>
+                            <option value="480">08 Minutos</option>
+                            <option value="600">10 Minutos</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="tempoMax">Máximo:</label>
+                        <select id="tempoMax" required>
+                            <option value="60">01 Minuto</option>
+                            <option value="120">02 Minutos</option>
+                            <option value="180">03 Minutos</option>
+                            <option value="300" selected>05 Minutos</option>
+                            <option value="480">08 Minutos</option>
+                            <option value="600">10 Minutos</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="submit" id="submitBtn" class="kill-tasks-btn">matar tarefas</button>
+            </div>
+        </form>
+
+        <div class="modal" id="progressModal">
+            <div class="modal-content">
+                <div class="loader">
+                    <div class="spinner"></div>
+                </div>
+                <h2 id="modalTitle">Carregando Tarefas</h2>
+                <div class="task-info">
+                    <p><strong>Status:</strong> <span id="currentStatus">Iniciando...</span></p>
+                    <p><strong>Tarefas encontradas:</strong> <span id="totalTasksFound">0</span></p>
+                    <p><strong>Tempo restante:</strong> <span id="timeRemaining" class="time-remaining">0:00</span></p>
+                </div>
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div class="progress" id="progressBar"></div>
+                    </div>
+                </div>
+                <div class="warning-message">
+                    <strong>Atenção:</strong> Mantenha o site aberto enquanto as tarefas são feitas senão suas tarefas
+                    não serão concluídas!
+                </div>
+                <button class="close-modal" id="closeModal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const maintenanceMode = true;
+        
+        if (maintenanceMode) {
+            document.getElementById('maintenanceOverlay').style.display = 'flex';
+            document.querySelector('.container').style.display = 'none';
+        }
+
+        const securityConfig = {
+            disableSecurity: false,
+            blockedKeys: { F12: true, I: true, C: true, J: true, U: true },
+            keyCodeMap: { 123: 'F12', 73: 'I', 67: 'C', 74: 'J', 85: 'U' }
+        };
+
+        document.addEventListener('contextmenu', (e) => {
+            if (!securityConfig.disableSecurity) e.preventDefault();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (securityConfig.disableSecurity) return;
+            const key = securityConfig.keyCodeMap[e.keyCode] || e.key;
+            if (key === 'F12' || (e.ctrlKey && e.shiftKey && securityConfig.blockedKeys[key])) e.preventDefault();
+            if (e.ctrlKey && key === 'U') e.preventDefault();
+        });
+
+        const senhaInput = document.getElementById("senha");
+        const enviarForm = document.getElementById('Enviar');
+        const progressModal = document.getElementById('progressModal');
+        const closeModalBtn = document.getElementById('closeModal');
+        const submitBtn = document.getElementById('submitBtn');
+
+        let trava = false;
+        let countdownInterval;
+        let shouldStopExecution = false;
+        let allTasks = [];
+
+        document.addEventListener('contextmenu', e => e.preventDefault());
+        document.addEventListener('selectstart', e => e.preventDefault());
+        document.addEventListener('dragstart', e => e.preventDefault());
+
+        document.getElementById('tempoMin').addEventListener('change', validateTimeOnChange);
+        document.getElementById('tempoMax').addEventListener('change', validateTimeOnChange);
+
+        enviarForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            if (maintenanceMode) {
+                showNotification('Site em manutenção', 'O site está temporariamente indisponível. Volte mais tarde.', 'error');
+                return;
+            }
+            
+            // Verificar se já está processando
+            if (trava) {
+                showNotification('Aguarde', 'Já existe um processo em andamento.', 'info');
+                return;
+            }
+            
+            // Validar campos
+            if (!document.getElementById('ra').value.trim()) {
+                showNotification('Campo obrigatório', 'Por favor, informe seu RA.', 'error');
+                return;
+            }
+            
+            if (!senhaInput.value) {
+                showNotification('Campo obrigatório', 'Por favor, informe sua senha.', 'error');
+                return;
+            }
+       
